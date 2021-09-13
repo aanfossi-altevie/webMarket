@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cds-deploy-to-hana-MyHANAApp-MyHANAApp-hdiMyHANAApp-db-deployer-ws-hqfrc-1",
+      "type": "shell",
+      "command": "cds",
+      "args": [
+        "deploy",
+        "--to",
+        "hana:MyHANAApp-hdiMyHANAApp-db-deployer-ws-hqfrc-1",
+        "--no-save"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/MyHANAApp"
+      },
+      "isBackground": true,
+      "problemMatcher": [
+        "$cap-hdi-bind-handler"
+      ]
+    },
+    {
+      "label": "cds-deploy-to-hana-MyHANAApp-MyHANAApp-hdiMyHANAApp-db-deployer-ws-hqfrc",
+      "type": "shell",
+      "command": "cds",
+      "args": [
+        "deploy",
+        "--to",
+        "hana:MyHANAApp-hdiMyHANAApp-db-deployer-ws-hqfrc",
+        "--no-save"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/MyHANAApp"
+      },
+      "isBackground": true,
+      "problemMatcher": [
+        "$cap-hdi-bind-handler"
+      ]
+    }
+  ]
+}
