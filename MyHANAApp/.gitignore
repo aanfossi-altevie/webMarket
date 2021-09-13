@@ -30,3 +30,5 @@ mta_archives/
 
 # auto generated wildcard
 MyHANAApp/db/.env
+# auto generated wildcard
+MyHANAApp/.env4
