@@ -8,19 +8,20 @@ modules:
   path: srv
   requires:
   - name: MyHANAApp-db
-  provides:
-  - name: srv-api
-    properties:
-      srv-url: ${default-url}
+  - name: uaa_MyHANAApp
   parameters:
-    buildpack: nodejs_buildpack
+    host: ${appname}
+  build-parameters:
+    ignore: [".env","/.node_modules"]
 - name: MyHANAApp-db-deployer
   type: hdb
   path: db
   requires:
   - name: MyHANAApp-db
   parameters:
-    buildpack: nodejs_buildpack
+    buildpack: nodejs_buildpack    
+  build-parameters:
+    ignore: [".env","/.node_modules"]
 - name: MyHANAApp-destination-content
   type: com.sap.application.content
   requires:
@@ -96,6 +97,13 @@ resources:
             ProxyType: Internet
             Type: HTTP
             URL: https://ui5.sap.com
+          - Name: hana-app-api
+            Authentication: NoAuthentication
+            ProxyType: Internet
+            HTML5.ForwardAuthToken: true
+            HTML5.DynamicDestination: true
+            Type: HTTP
+            URL: https://${appname}.${default-domain}
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
@@ -107,6 +115,7 @@ resources:
     service: html5-apps-repo
     service-name: MyHANAApp-html5-app-host-service
     service-plan: app-host
+    
 - name: uaa_MyHANAApp
   type: org.cloudfoundry.managed-service
   parameters:
@@ -117,6 +126,7 @@ resources:
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
+  appname: uniqe-1860
 build-parameters:
   before-all:
   - builder: custom
