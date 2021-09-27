@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog id = "sendData" title="Aggiungi Dati" contentHeight="20%" >
+        <Input placeholder = "PARTNER" value="{dialogOutput>/PARTNER}" width="80%"/>
+        <DateTimePicker valueFormat="YYYY-MM-ddTHH:mm:SS" value="{dialogOutput>/LOG_DATE}"/>
+        <endButton>
+            <Button text="Chiudimi" press="onCloseDialog"/>
+        </endButton>
+        <beginButton>
+            <Button text="Inviami" press="myPost"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

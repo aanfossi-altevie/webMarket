@@ -69,7 +69,7 @@
 					"bundleName": "interactionheaders.i18n.i18n"
 				}
 			},
-			"": {
+			"myModel": {
 				"dataSource": "mainService",
 				"preload": true,
 				"settings": {
@@ -109,8 +109,8 @@
 
 			"targets": {
 				"worklist": {
-					"viewName": "Worklist",
-					"viewId": "worklist",
+                    "viewName": "Worklist",
+                    "viewId": "worklist",
 					"viewLevel": 1,
 					"title": "{i18n>worklistViewTitle}"
 				},

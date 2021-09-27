@@ -10,10 +10,8 @@ type LText : String(1024);
 entity Interactions_Header {
 
     key ID        : Integer;
-
         ITEMS     : Composition of many Interactions_Items
                         on ITEMS.INTHeader = $self;
-
         PARTNER   : BusinessKey;
         LOG_DATE  : SDate;
         BPCOUNTRY : Country;

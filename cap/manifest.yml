@@ -1,0 +1,8 @@
+applications:
+- name: cap-srv
+  random-route: true  # for development only
+  memory: 256M
+  buildpack: nodejs_buildpack
+  services:
+        - cap-hdicap-db-deployer-ws-hqfrc
+        - cap-uaa

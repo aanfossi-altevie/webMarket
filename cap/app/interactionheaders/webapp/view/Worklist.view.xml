@@ -1,80 +1,75 @@
-<mvc:View
-	controllerName="interactionheaders.controller.Worklist"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
+<mvc:View controllerName="interactionheaders.controller.Worklist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout">
 
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false">
+    <!-- <semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false"> -->
+    <Page>
+    <!-- <semantic:titleHeading> -->
+    <Title text="{i18n>worklistTitle}" />
+    <!-- </semantic:titleHeading> -->
 
-		<semantic:titleHeading>
-			<Title text="{i18n>worklistTitle}" />
-		</semantic:titleHeading>
+    <!-- <semantic:content> -->
 
-		<semantic:content>
-			<Table
-				id="table"
-				width="auto"
-				items="{
-					path: '/Interactions_Header',
+    <content>
+        <ScrollContainer height="100%" width="100%" vertical="true">
+            <Table id="table" items="{
+					path: 'myModel>/Interactions_Header',
 					sorter: {
 						path: 'ID',
 						descending: false
 					}
-				}"
-				noDataText="{worklistView>/tableNoDataText}"
-				growing="true"
-				growingScrollToLoad="true"
-				updateFinished=".onUpdateFinished">
+				}" noDataText="{worklistView>/tableNoDataText}" growingThreshold="5" updateFinished=".onUpdateFinished">
 
-				<headerToolbar>
-					<Toolbar>
-						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
-						<ToolbarSpacer />
-						<SearchField
-							id="searchField"
-							tooltip="{i18n>worklistSearchTooltip}"
-							search=".onSearch"
-							width="auto">
-						</SearchField>
-					</Toolbar>
-				</headerToolbar>
+                <headerToolbar>
+                    <Toolbar>
+                        <Title id="tableHeader" text="{worklistView>/worklistTableTitle}" />
+                        <ToolbarSpacer />
+                        <SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search=".onSearch" width="auto">
+                        </SearchField>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://add" press="onOpenDialogSendData"/>
+                        <Button icon ="sap-icon://refresh" press="myRefresh"/>
+                    </Toolbar>
+                </headerToolbar>
 
-				<columns>
-					<Column id="nameColumn">
-						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
-					</Column>
-					<Column id="unitNumberColumn" hAlign="End">
-						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
-					</Column>
-				</columns>
+                <columns>
+                    <Column id="nameColumn">
+                        <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+                    </Column>
+                    <Column >
+                        <Text text="PARTNER"/>
+                    </Column>
+                    <Column>
+                        <Text text="LOG_DATE"/>
+                    </Column>
+                    <Column>
+                        <Text text="BPCOUNTRY"/>
+                    </Column>
+                </columns>
 
-				<items>
-					<ColumnListItem
-						type="Navigation"
-						press=".onPress">
-						<cells>
-							<ObjectIdentifier
-								title="{ID}"/>
-							<ObjectNumber
-								number="{
-									path: '',
-									formatter: '.formatter.numberUnit'
-								}"
-								unit="{}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</semantic:content>
+                <items>
+                    <ColumnListItem type="Navigation" press=".onPress">
+                        <cells>
+                            <ObjectIdentifier title="{myModel>ID}" />
+                            <ObjectIdentifier title="{myModel>PARTNER}"/>
+                            <ObjectIdentifier title="{myModel>LOG_DATE}"/>
+                            <ObjectIdentifier title="{myModel>BPCOUNTRY_code}"/>
+                        </cells>
+                    </ColumnListItem>
 
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-		</semantic:sendEmailAction>
+                </items>
+            </Table>
+        </ScrollContainer>
+    </content>
+    </Page>
 
+    <!-- </semantic:content> -->
 
-	</semantic:SemanticPage>
+    <!-- <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+        </semantic:sendEmailAction> -->
+    <!-- </semantic:SemanticPage>  -->
 
 </mvc:View>

@@ -12,12 +12,13 @@
 		busyIndicatorDelay="{objectView>/delay}">
 
 		<semantic:titleHeading>
-			<Title text="{ID}" />
+			<Title text="{ID}" />            
 		</semantic:titleHeading>
 
 		<semantic:headerContent>
 			<ObjectNumber
 			/>
+            
 		</semantic:headerContent>
 
 		<semantic:sendEmailAction>

@@ -1,0 +1,15 @@
+GET http://localhost:4004/catalog/Interactions_Header?$orderby=ID%20asc&$top=1&$expand=ITEMS
+###
+POST http://localhost:4004/catalog/Interactions_Header
+Content-Type: application/json
+
+{
+    
+    "PARTNER":"0100000009",
+    "LOG_DATE":"2021-09-23T15:07:06Z"
+
+    
+   
+}
+###
+GET http://localhost:4004/function-header/test

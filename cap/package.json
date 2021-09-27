@@ -5,6 +5,9 @@
     "repository": "<Add your repository here>",
     "license": "UNLICENSED",
     "private": true,
+    "engines": {
+        "node": "^10.0.0 || ^12.0.0"
+    },
     "dependencies": {
         "@sap/audit-logging": "^5.1.0",
         "@sap/cds": "^5",
@@ -12,9 +15,11 @@
         "@sap/hana-client": "^2.7",
         "@sap/xsenv": "^3.1.1",
         "@sap/xssec": "^3.2.7",
+        "@types/jquery": "^3.5.6",
         "express": "^4",
         "hdb": "^0.18.3",
-        "passport": "^0.4.1"
+        "passport": "^0.4.1",
+        "request": "^2.81.0"
     },
     "scripts": {
         "start": "NODE_ENV=production cds run"

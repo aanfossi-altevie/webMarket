@@ -1,0 +1,21 @@
+# Generated manifest.yml based on template version 0.1.0
+# appName = cap
+# language=nodejs
+# multitenancy=false
+---
+applications:
+# -----------------------------------------------------------------------------------
+# Backend Service
+# -----------------------------------------------------------------------------------
+    
+    # AppRouter
+    - name: cap-approuter
+      random-route: true  # for development only
+      memory: 256M
+      buildpack: nodejs_buildpack
+      services:
+        - cap_html_repo_runtime
+        - cap-uaa
+      
+      
+  

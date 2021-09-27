@@ -13,6 +13,5 @@
     "eslint.options": {
         "configFile": "/home/user/.node_modules_global/lib/node_modules/@sap/cds-dk/lib/lint/.eslintrc.js"
     },
-    "actions": [],
-    "[xml].editor.defaultFormatter": "dotjoshjohnson.xml"
+    "actions": []
 }
